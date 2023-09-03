@@ -98,7 +98,7 @@ class CustomersController extends Controller
             }
             $allCodes  = []; // ALL OUT CODES 
             foreach ($data as $index => $singleData) {
-                array_push($allCodes, $singleData->CardCode);
+                array_push($allCodes, $singleData['CardCode']); //! important
             }
             $custTableCodes = DB::table('customers')->pluck('CardCode')->toArray(); // ALL IN CODES
             // NOW delete ALL FROM card_code table and RE-FILL , reset also AUTO increment from 1 
