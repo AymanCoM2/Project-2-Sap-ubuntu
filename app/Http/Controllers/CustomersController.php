@@ -78,17 +78,17 @@ class CustomersController extends Controller
             while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                 $data[] = $row; // Append each row to the $data array
             }
-            // if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            //     // Code for Windows
-            //     $data = DB::connection('sqlsrv')->select($sap_Query);
-            // } else {
-            //     // Code for Linux
-            //     $conn = sqlsrv_connect($serverName, $connectionOptions);
-            //     $result = sqlsrv_query($conn, $sap_Query);
-            //     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-            //         $data[] = $row; // Append each row to the $data array
-            //     }
-            // }
+            if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+                // Code for Windows
+                $data = DB::connection('sqlsrv')->select($sap_Query);
+            } else {
+                // Code for Linux
+                $conn = sqlsrv_connect($serverName, $connectionOptions);
+                $result = sqlsrv_query($conn, $sap_Query);
+                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                    $data[] = $row; // Append each row to the $data array
+                }
+            }
             $firstElement = $data[0];
             $allKeys = [];
             $tdContent = "";
