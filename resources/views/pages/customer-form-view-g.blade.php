@@ -9,7 +9,7 @@
     $allDDLColumn = App\Models\ColumnType::where('colType', 'ddl')
         ->pluck('colName')
         ->all();
-    $r = App\Models\EditHistory::where('cardCode', $customerMySqlData->CardCode)
+    $r = App\Models\EditHistory::where('cardCode', $customerMySqlData['CardCode'])
         ->where('isApproved', 0)
         ->get()
         ->makeHidden(['created_at', 'updated_at'])
@@ -75,7 +75,7 @@
 
     <form action="{{ route('handle-update-form') }}" method="POST" id='groupFormUpdate'>
         @csrf
-        <input type="hidden" name="id" value="{{ $customerMySqlData->id }}">
+        <input type="hidden" name="id" value="{{ $customerMySqlData['id'] }}">
         <input type="hidden" name="CardCode" value="{{ $customerSapData->CardCode }}">
         <input type="hidden" name="created_at" value="">
         <input type="hidden" name="updated_at" value="">
