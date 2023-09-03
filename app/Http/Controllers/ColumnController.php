@@ -6,7 +6,6 @@ use App\Http\Requests\AddOptionDDLrequest;
 use App\Models\ColumnOption;
 use App\Models\ColumnType;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ColumnController extends Controller
 {

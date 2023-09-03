@@ -1,4 +1,0 @@
-1-First of all the E-Commerce Script For the CodeCanyoun  ; 
-2-The Domain For the Dashboard and Editing the Style For the Project ;
-3-The Numbers in Datatables and Removing the Zero  ; 
-4-

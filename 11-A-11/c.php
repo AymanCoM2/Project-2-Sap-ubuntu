@@ -6,7 +6,6 @@ use App\Http\Requests\FormGroupingRequest;
 use App\Models\CardCode;
 use App\Models\Customers;
 use App\Models\EditHistory;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -61,25 +60,24 @@ class CustomersController extends Controller
             ELSE N'غير متجاوز الفترة الائتمانية'
             END AS 'DueAmount State'
         FROM R
+
         ";
         // WHERE R.CARDCODE = 'R0001' << After From R to get the DATA from 
         // the Sap to Filter For One User
         if ($request->ajax()) {
-            try {
-                $data =  DB::connection('sqlsrv')->select($sap_Query);
-            } catch (Exception $e) {
-                $serverName = "10.10.10.100";
-                $connectionOptions = array(
-                    "database" => "LB",
-                    "uid" => "ayman",
-                    "pwd" => "admin@1234"
-                );
-                $conn = sqlsrv_connect($serverName, $connectionOptions);
-                $result = sqlsrv_query($conn, $sap_Query);
-                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                    $data[] = $row; // Append each row to the $data array
-                }
+            //$data =  DB::connection('sqlsrv')->select($sap_Query);
+            $serverName = "10.10.10.100";
+            $connectionOptions = array(
+                "database" => "LB",
+                "uid" => "ayman",
+                "pwd" => "admin@1234"
+            );
+            $conn = sqlsrv_connect($serverName, $connectionOptions);
+            $result = sqlsrv_query($conn, $sap_Query);
+            while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                $data[] = $row; // Append each row to the $data array
             }
+
             $firstElement = $data[0];
             $allKeys = [];
             $tdContent = "";
@@ -89,7 +87,7 @@ class CustomersController extends Controller
             }
             $allCodes  = []; // ALL OUT CODES 
             foreach ($data as $index => $singleData) {
-                array_push($allCodes, $singleData->CardCode);
+                array_push($allCodes, $singleData['CardCode']);
             }
             $custTableCodes = DB::table('customers')->pluck('CardCode')->toArray(); // ALL IN CODES
             // NOW delete ALL FROM card_code table and RE-FILL , reset also AUTO increment from 1 
@@ -155,21 +153,7 @@ class CustomersController extends Controller
         FROM R
         ";
 
-        try {
-            $data =  DB::connection('sqlsrv')->select($sap_Query);
-        } catch (Exception $e) {
-            $serverName = "10.10.10.100";
-            $connectionOptions = array(
-                "database" => "LB",
-                "uid" => "ayman",
-                "pwd" => "admin@1234"
-            );
-            $conn = sqlsrv_connect($serverName, $connectionOptions);
-            $result = sqlsrv_query($conn, $sap_Query);
-            while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                $data[] = $row; // Append each row to the $data array
-            }
-        }
+        $data =  DB::connection('sqlsrv')->select($sap_Query);
         foreach ($data as $datium) {
             foreach ($datium as $key => $value) {
                 if ($value == $querySingleCode) {
