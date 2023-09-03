@@ -36,7 +36,6 @@ Route::get('/approve-pdf-file/{pdf}', function (Request $request) {
     return back();
 })->name('approve-pdf');
 
-
 Route::get('/disapprove-pdf-file/{pdf}', function (Request $request) {
     $documentId  = $request->pdf;
     $disApprovedDoc = Documents::where('id', $documentId);

@@ -1,18 +1,10 @@
 <?php
 
-use App\Http\Requests\ExcelRequest;
 use App\Models\CardCode;
-use App\Models\ColumnOption;
-use App\Models\ColumnType;
-use App\Models\Documents;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
-use League\CommonMark\Node\Block\Document;
-use Rap2hpoutre\FastExcel\FastExcel;
+
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], __DIR__ . '/utility.php'); // * Ok 
