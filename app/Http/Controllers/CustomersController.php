@@ -169,6 +169,20 @@ class CustomersController extends Controller
             while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                 $data[] = $row; // Append each row to the $data array
             }
+        } finally {
+            if ($data) {
+            } else
+                $serverName = "10.10.10.100";
+            $connectionOptions = [
+                "database" => "LB",
+                "uid" => "ayman",
+                "pwd" => "admin@1234"
+            ];
+            $conn = sqlsrv_connect($serverName, $connectionOptions);
+            $result = sqlsrv_query($conn, $sap_Query);
+            while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                $data[] = $row; // Append each row to the $data array
+            }
         }
         foreach ($data as $datium) {
             foreach ($datium as $key => $value) {
