@@ -9,6 +9,7 @@ use App\Models\EditHistory;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDO;
 
 class CustomersController extends Controller
 {
@@ -77,26 +78,33 @@ class CustomersController extends Controller
             $firstWord = strtok($osInfo, ' ');
             // $data = null;
             $serverName = "10.10.10.100";
-            $connectionOptions = [
-                "database" => "LB",
-                "uid" => "ayman",
-                "pwd" => "admin@1234"
+            $databaseName = "LB";
+            $uid = "ayman";
+            $pwd = "admin@1234";
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::SQLSRV_ATTR_FETCHES_NUMERIC_TYPE => true,
+                "TrustServerCertificate" => true,
             ];
 
-            $conn = sqlsrv_connect($serverName, $connectionOptions);
-            $result = sqlsrv_query($conn, $sap_Query);
-            while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+
+            $conn = new PDO("sqlsrv:server = $serverName; Database = $databaseName;", $uid, $pwd, $options);
+            $stmt = $conn->query($sap_Query);
+
+            // $conn = sqlsrv_connect($serverName, $connectionOptions);
+            // $result = sqlsrv_query($conn, $sap_Query);
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $data[] = $row; // Append each row to the $data array
             }
-            if (strcasecmp($firstWord, 'Windows') === 0) {
-                $data = DB::connection('sqlsrv')->select($sap_Query);
-            } else {
-                $conn = sqlsrv_connect($serverName, $connectionOptions);
-                $result = sqlsrv_query($conn, $sap_Query);
-                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                    $data[] = $row; // Append each row to the $data array
-                }
-            }
+            // if (strcasecmp($firstWord, 'Windows') === 0) {
+            //     $data = DB::connection('sqlsrv')->select($sap_Query);
+            // } else {
+            //     $conn = sqlsrv_connect($serverName, $connectionOptions);
+            //     $result = sqlsrv_query($conn, $sap_Query);
+            //     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+            //         $data[] = $row; // Append each row to the $data array
+            //     }
+            // }
 
             $firstElement = $data[0];
             $allKeys = [];
