@@ -154,7 +154,7 @@ class CustomersController extends Controller
             END AS 'DueAmount State'
         FROM R
         ";
-
+        $data  = [];
         try {
             $data =  DB::connection('sqlsrv')->select($sap_Query);
         } catch (Exception $e) {
@@ -275,10 +275,6 @@ class CustomersController extends Controller
             }
             // "CommercialRegister":"السجل التجارى",
             if ($request->CommercialRegister == "غير موجود" ||  $request->CommercialRegister == null) {
-                // "CRExpiryDate": "تاريخ انتهاء السجل التجارى",
-                // "CrCnMatch":"مطابقة اسم العميل بالاسم بالسجل التجارى",
-                // "OrgLegalStatue":"الكيان القانونى",
-                // "ObCrMatch":"مطابقة رقم السجل التجارى بسند الامر",
                 $updatedCustomer->CRExpiryDate = null;
                 $updatedCustomer->CrCnMatch = null;
                 $updatedCustomer->ObCrMatch = null;
@@ -288,13 +284,6 @@ class CustomersController extends Controller
 
             // "OrderBond":"سند الامر",
             if ($request->OrderBond == "غير موجود" ||  $request->OrderBond  == null) {
-                // "ValueOrderException": "قيمة سند الامر او الاستثناء",
-                // "CreationDateOrderOrException": "تاريخ انشاء سند الامر او الاستثناء",
-                // "ObCrMatch":"مطابقة رقم السجل التجارى بسند الامر",
-                // "ObSupporterIdImg":" صورة عن هوية الضامن الاحتياطي في السند لأمر",
-                // "ObFrstSeeIdImg":" صورة عن هوية الشاهد الاول في السند الامر",
-                // "ObScndSeeIdImg":" صورة عن هوية الشاهد الثانى في السند الامر",
-                // "NationalAddrFirstSupOb":" صورة عن العنوان الوطني للضامن الاحتياطي في سند الامر" 
                 $updatedCustomer->ValueOrderException = null;
                 $updatedCustomer->CreationDateOrderOrException = null;
                 $updatedCustomer->ObCrMatch = null;
