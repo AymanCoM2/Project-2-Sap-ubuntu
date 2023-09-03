@@ -206,7 +206,7 @@ class CustomersController extends Controller
     public function showCustomerDataForm($cardCode)
     {
         // FORM 
-        $customerSapData  = self::getSingleCustomerData($cardCode);
+        $customerSapData  = (array) self::getSingleCustomerData($cardCode);
         // dd($customerSapData); // Data From SAP OK 
         $customerMySqlData  = Customers::where('CardCode', $cardCode)->first();
         // dd($customerMySqlData); // Data From MySQL Ok 
@@ -225,7 +225,7 @@ class CustomersController extends Controller
     {
         $posY = 0;
         // FORM 
-        $customerSapData  = self::getSingleCustomerData($cardCode);
+        $customerSapData  =(array) self::getSingleCustomerData($cardCode);
         // dd($customerSapData); // Data From SAP OK 
         $customerMySqlData  = Customers::where('CardCode', $cardCode)->first();
         // dd($customerMySqlData); // Data From MySQL Ok 

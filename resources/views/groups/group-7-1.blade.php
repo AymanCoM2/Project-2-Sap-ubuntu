@@ -6,7 +6,7 @@
                 Extra Data :
             </label>
             <p dir="rtl">
-                {{ $customerSapData->Free_Text }}
+                {{ $customerSapData['Free_Text'] }}
             </p>
         </div>
     </div>

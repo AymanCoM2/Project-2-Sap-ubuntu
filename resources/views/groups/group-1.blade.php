@@ -3,33 +3,33 @@
         {{-- 1 --}}
         <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light w-100 fw-bold">Creation Date :</label>
-            <p>{{ $customerSapData->CreateDate }}</p>
+            <p>{{ $customerSapData['CreateDate'] }}</p>
         </div>
 
         {{-- 2 --}}
         <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light  w-100 fw-bold">Group :</label>
-            <p>{{ $customerSapData->GroupName }}</p>
+            <p>{{ $customerSapData['GroupName'] }}</p>
         </div>
 
         {{-- 3 --}}
         <div class="col-sm-6">
             <label for="inputPassword4" class="form-label bg-light  w-100 fw-bold"> {{ __('CardCode', [], 'ar') }}
             </label>
-            <p>{{ $customerSapData->CardCode }} </p>
+            <p>{{ $customerSapData['CardCode'] }} </p>
         </div>
 
         {{-- 4 --}}
         <div class="col-sm-6">
             <label for="inputPassword4" class="form-label bg-light  w-100 fw-bold"> {{ __('CardName', [], 'ar') }}
             </label>
-            <p>{{ $customerSapData->CardName }} </p>
+            <p>{{ $customerSapData['CardName'] }} </p>
         </div>
 
         {{-- 5 --}}
         <div class="col-sm-6 {{ $errors->has('CustomerType') ? 'border border-danger' : '' }}">
             <label for="" class="form-label bg-light  w-100 fw-bold d-block"> {{ __('CustomerType', [], 'ar') }}
-                @if ($customerSapData->PymntGroup == '- Cash Basic -')
+                @if ($customerSapData['PymntGroup'] == '- Cash Basic -')
                     <span class="text-danger">CASH BASIC </span>
                 @else
                     <span class="text-danger">NOT CASH BASIC </span>
@@ -72,9 +72,9 @@
                         if ($val1->colOption == old('CustomerType', $customerMySqlData->CustomerType)) {
                             $res = 'checked';
                         }
-                        if ($customerSapData->PymntGroup !== '- Cash Basic -' && $val1->colOption == 'نقدى') {
+                        if ($customerSapData['PymntGroup'] !== '- Cash Basic -' && $val1->colOption == 'نقدى') {
                             $rss = 'disabled';
-                        } elseif ($customerSapData->PymntGroup == '- Cash Basic -' && $val1->colOption !== 'نقدى') {
+                        } elseif ($customerSapData['PymntGroup'] == '- Cash Basic -' && $val1->colOption !== 'نقدى') {
                             $rss = 'disabled';
                         } else {
                             $rss = '';

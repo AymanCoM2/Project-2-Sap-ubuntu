@@ -5,7 +5,7 @@
             <label for="inputEmail4"
                 class="form-label bg-light w-100 w-100 fw-bold">{{ __('GovernmentTaxIdentifier', [], 'ar') }}
                 :</label>
-            <p>{{ $customerSapData->LicTradNum }}</p>
+            <p>{{ $customerSapData['LicTradNum'] }}</p>
         </div>
 
         {{-- 2 --}}
@@ -338,7 +338,7 @@
         <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light w-100 fw-bold">حالة البطاقة الضريبية</label>
             <p name="Rttv_dt_e"> @php
-                if ($customerMySqlData->TaxCard == 'موجود' && strlen($customerSapData->LicTradNum) == 15) {
+                if ($customerMySqlData->TaxCard == 'موجود' && strlen($customerSapData['LicTradNum']) == 15) {
                     echo 'سارى';
                 } else {
                     echo 'يجب اعادة طلبه';
