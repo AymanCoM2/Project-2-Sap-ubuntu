@@ -65,6 +65,7 @@ class CustomersController extends Controller
         // WHERE R.CARDCODE = 'R0001' << After From R to get the DATA from 
         // the Sap to Filter For One User
         if ($request->ajax()) {
+            $data  = [];
             try {
                 $data =  DB::connection('sqlsrv')->select($sap_Query);
             } catch (Exception $e) {
@@ -74,6 +75,20 @@ class CustomersController extends Controller
                     "uid" => "ayman",
                     "pwd" => "admin@1234"
                 );
+                $conn = sqlsrv_connect($serverName, $connectionOptions);
+                $result = sqlsrv_query($conn, $sap_Query);
+                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                    $data[] = $row; // Append each row to the $data array
+                }
+            } finally {
+                if ($data) {
+                } else
+                    $serverName = "10.10.10.100";
+                $connectionOptions = [
+                    "database" => "LB",
+                    "uid" => "ayman",
+                    "pwd" => "admin@1234"
+                ];
                 $conn = sqlsrv_connect($serverName, $connectionOptions);
                 $result = sqlsrv_query($conn, $sap_Query);
                 while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
