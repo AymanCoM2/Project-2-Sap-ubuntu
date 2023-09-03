@@ -28,7 +28,6 @@ Route::group(['middleware' => ['auth']], __DIR__ . '/importingRadios.php');
 Route::group(['middleware' => ['auth']], __DIR__ . '/reports.php');
 
 
-
 Route::get('/new-codes', function (Request $request) {
     $searchTerm = $request->query('search');
     $query = CardCode::query();
@@ -41,19 +40,3 @@ Route::get('/new-codes', function (Request $request) {
 
     return view('pages.new-codes', compact('allNewCardCodes'));
 })->middleware('lev1')->name('new-codes-get');
-
-// Route::get('/new-codes', function (Request $request) {
-//     $searchTerm = $request->query('search');
-//     $query = CardCode::query();
-//     if ($searchTerm) {
-//         $query->search($searchTerm);
-//     }
-//     $allNewCardCodes = $query->paginate(60);
-//     // Append the search term to the pagination links
-//     $allNewCardCodes->appends(['search' => $searchTerm]);
-
-//     return view('pages.new-codes', compact('allNewCardCodes'));
-// })->name('new-codes-get');
-
-
-
