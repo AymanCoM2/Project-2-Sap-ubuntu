@@ -65,30 +65,19 @@ class CustomersController extends Controller
         // WHERE R.CARDCODE = 'R0001' << After From R to get the DATA from 
         // the Sap to Filter For One User
         if ($request->ajax()) {
-            $data  = [];
-            try {
-                $data =  DB::connection('sqlsrv')->select($sap_Query);
-            } catch (Exception $e) {
-                $serverName = "10.10.10.100";
-                $connectionOptions = array(
-                    "database" => "LB",
-                    "uid" => "ayman",
-                    "pwd" => "admin@1234"
-                );
-                $conn = sqlsrv_connect($serverName, $connectionOptions);
-                $result = sqlsrv_query($conn, $sap_Query);
-                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                    $data[] = $row; // Append each row to the $data array
-                }
-            } finally {
-                if ($data) {
-                } else
-                    $serverName = "10.10.10.100";
-                $connectionOptions = [
-                    "database" => "LB",
-                    "uid" => "ayman",
-                    "pwd" => "admin@1234"
-                ];
+            $data = null;
+            $serverName = "10.10.10.100";
+            $connectionOptions = [
+                "database" => "LB",
+                "uid" => "ayman",
+                "pwd" => "admin@1234"
+            ];
+
+            if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+                // Code for Windows
+                $data = DB::connection('sqlsrv')->select($sap_Query);
+            } else {
+                // Code for Linux
                 $conn = sqlsrv_connect($serverName, $connectionOptions);
                 $result = sqlsrv_query($conn, $sap_Query);
                 while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
