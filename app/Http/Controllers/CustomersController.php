@@ -14,11 +14,18 @@ class CustomersController extends Controller
 {
     public function customersTableGet()
     {
+        // $osInfo = php_uname();
+        // $firstWord = strtok($osInfo, ' ');
+        // if (strcasecmp($firstWord, 'Windows') === 0) {
+        //     // Code for Windows
+        //     dd($firstWord);
+        // }
         return view('pages.customers-table');
     }
 
     public function customersTablePost(Request $request)
     {
+
         $sap_Query = "
         --CREATE VIEW CustData AS 
         WITH 
@@ -65,7 +72,10 @@ class CustomersController extends Controller
         // WHERE R.CARDCODE = 'R0001' << After From R to get the DATA from 
         // the Sap to Filter For One User
         if ($request->ajax()) {
-            $data = null;
+
+            $osInfo = php_uname();
+            $firstWord = strtok($osInfo, ' ');
+            // $data = null;
             $serverName = "10.10.10.100";
             $connectionOptions = [
                 "database" => "LB",
@@ -78,17 +88,16 @@ class CustomersController extends Controller
             while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                 $data[] = $row; // Append each row to the $data array
             }
-            if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-                // Code for Windows
+            if (strcasecmp($firstWord, 'Windows') === 0) {
                 $data = DB::connection('sqlsrv')->select($sap_Query);
             } else {
-                // Code for Linux
                 $conn = sqlsrv_connect($serverName, $connectionOptions);
                 $result = sqlsrv_query($conn, $sap_Query);
                 while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                     $data[] = $row; // Append each row to the $data array
                 }
             }
+
             $firstElement = $data[0];
             $allKeys = [];
             $tdContent = "";
@@ -97,8 +106,14 @@ class CustomersController extends Controller
                 $tdContent .= "<td>$key</td>";
             }
             $allCodes  = []; // ALL OUT CODES 
-            foreach ($data as $index => $singleData) {
-                array_push($allCodes, $singleData['CardCode']); //! important
+            if (strcasecmp($firstWord, 'Windows') === 0) {
+                foreach ($data as $index => $singleData) {
+                    array_push($allCodes, $singleData->CardCode); //! important
+                }
+            } else {
+                foreach ($data as $index => $singleData) {
+                    array_push($allCodes, $singleData['CardCode']); //! important
+                }
             }
             $custTableCodes = DB::table('customers')->pluck('CardCode')->toArray(); // ALL IN CODES
             // NOW delete ALL FROM card_code table and RE-FILL , reset also AUTO increment from 1 
@@ -163,36 +178,31 @@ class CustomersController extends Controller
             END AS 'DueAmount State'
         FROM R
         ";
-        $data  = [];
-        try {
-            $data =  DB::connection('sqlsrv')->select($sap_Query);
-        } catch (Exception $e) {
-            $serverName = "10.10.10.100";
-            $connectionOptions = array(
-                "database" => "LB",
-                "uid" => "ayman",
-                "pwd" => "admin@1234"
-            );
-            $conn = sqlsrv_connect($serverName, $connectionOptions);
-            $result = sqlsrv_query($conn, $sap_Query);
-            while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                $data[] = $row; // Append each row to the $data array
-            }
-        } finally {
-            if ($data) {
-            } else
-                $serverName = "10.10.10.100";
-            $connectionOptions = [
-                "database" => "LB",
-                "uid" => "ayman",
-                "pwd" => "admin@1234"
-            ];
+        $osInfo = php_uname();
+        $firstWord = strtok($osInfo, ' ');
+        // $data = null;
+        $serverName = "10.10.10.100";
+        $connectionOptions = [
+            "database" => "LB",
+            "uid" => "ayman",
+            "pwd" => "admin@1234"
+        ];
+
+        $conn = sqlsrv_connect($serverName, $connectionOptions);
+        $result = sqlsrv_query($conn, $sap_Query);
+        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+            $data[] = $row; // Append each row to the $data array
+        }
+        if (strcasecmp($firstWord, 'Windows') === 0) {
+            $data = DB::connection('sqlsrv')->select($sap_Query);
+        } else {
             $conn = sqlsrv_connect($serverName, $connectionOptions);
             $result = sqlsrv_query($conn, $sap_Query);
             while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                 $data[] = $row; // Append each row to the $data array
             }
         }
+
         foreach ($data as $datium) {
             foreach ($datium as $key => $value) {
                 if ($value == $querySingleCode) {

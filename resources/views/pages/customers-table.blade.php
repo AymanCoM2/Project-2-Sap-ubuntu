@@ -146,8 +146,8 @@
                 }, // initComplete END 
             }); // End Of Making the New Data Table 
         },
-        error: function() {
-            console.log("Error Running the SQL query !!");
+        error: function(e) {
+            console.log(e);
         }, // End of Error Option 
     }) // End Of Ajax call 
 </script>
