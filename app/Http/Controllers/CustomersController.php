@@ -73,7 +73,6 @@ class CustomersController extends Controller
         // WHERE R.CARDCODE = 'R0001' << After From R to get the DATA from 
         // the Sap to Filter For One User
         if ($request->ajax()) {
-
             $osInfo = php_uname();
             $firstWord = strtok($osInfo, ' ');
             // $data = null;
@@ -86,7 +85,6 @@ class CustomersController extends Controller
                 PDO::SQLSRV_ATTR_FETCHES_NUMERIC_TYPE => true,
                 "TrustServerCertificate" => true,
             ];
-
 
             $conn = new PDO("sqlsrv:server = $serverName; Database = $databaseName;", $uid, $pwd, $options);
             $stmt = $conn->query($sap_Query);
@@ -114,15 +112,18 @@ class CustomersController extends Controller
                 $tdContent .= "<td>$key</td>";
             }
             $allCodes  = []; // ALL OUT CODES 
-            if (strcasecmp($firstWord, 'Windows') === 0) {
-                foreach ($data as $index => $singleData) {
-                    array_push($allCodes, $singleData->CardCode); //! important
-                }
-            } else {
-                foreach ($data as $index => $singleData) {
-                    array_push($allCodes, $singleData['CardCode']); //! important
-                }
+            foreach ($data as $index => $singleData) {
+                array_push($allCodes, $singleData->CardCode); //! important
             }
+            // if (strcasecmp($firstWord, 'Windows') === 0) {
+            //     foreach ($data as $index => $singleData) {
+            //         array_push($allCodes, $singleData->CardCode); //! important
+            //     }
+            // } else {
+            //     foreach ($data as $index => $singleData) {
+            //         array_push($allCodes, $singleData['CardCode']); //! important
+            //     }
+            // }
             $custTableCodes = DB::table('customers')->pluck('CardCode')->toArray(); // ALL IN CODES
             // NOW delete ALL FROM card_code table and RE-FILL , reset also AUTO increment from 1 
             DB::table('card_codes')->delete();
