@@ -73,7 +73,7 @@
                             '/' + cellData + '" >' +
                             cellData + "(Local)" + '</a>' + '<br/>' +
                             '<a  style="color:green; text-decoration: none;" href="' +
-                            '{{ url('/user-drive') }}' +
+                            '{{ url('/user-drive-standalone') }}' +
                             '/' + cellData + '" >' + "Files" + '</a>'
                         )
                     }

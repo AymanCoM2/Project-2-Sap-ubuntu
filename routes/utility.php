@@ -19,6 +19,7 @@ Route::post('/import-customers', [ImportingController::class, 'storeExcelImport'
 
 // ----------------------------------- // * Ok  << PDF 
 Route::get('/user-drive/{cardCode}', [DocumentsController::class, 'localGoogleDrive'])->name('customer-drive');
+Route::get('/user-drive-standalone/{cardCode}', [DocumentsController::class, 'standAloneLocalGoogleDrive'])->name('customer-drive-standalone');
 Route::post('/delete-document', [DocumentsController::class, 'deleteCustomerDocument'])->name('delete-docu');
 Route::post('/restore-document', [DocumentsController::class, 'restoreDocument'])->name('restore-docu');
 Route::post('/delete-before-approval', [DocumentsController::class, 'deleteBeforeApprove'])->name('delete-before-approval');
