@@ -1,7 +1,7 @@
 <script type="text/javascript" src={{ asset('js/jquery.js') }}></script>
 <script type="text/javascript" src={{ asset('js/bootstrap.bundle.js') }}></script>
 <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/2_jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/j_jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/buttons.html5.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jszip.min.js') }}"></script>
