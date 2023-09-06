@@ -38,6 +38,7 @@
         type: 'POST',
         url: "{{ route('post-all-customers') }}",
         success: function(data) {
+            console.log(data);
             const x = data.data;
             const columnNames = data.keys;
             for (var i of columnNames) {
@@ -46,7 +47,7 @@
                     name: i
                 });
                 // $("#the-heading").html = data.row;
-                document.getElementById("the-heading").innerHTML = data.row;
+                // document.getElementById("the-heading").innerHTML = data.row;
             } // 
             pdfMake.fonts = {
                 Roboto: {
