@@ -49,6 +49,7 @@
                 $("#the-heading").html = data.row;
                 // document.getElementById("the-heading").innerHTML = data.row;
             } // 
+            var pdfMake;
             pdfMake.fonts = {
                 Roboto: {
                     normal: 'Roboto-Italic.ttf',
