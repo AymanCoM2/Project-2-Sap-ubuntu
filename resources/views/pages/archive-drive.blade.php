@@ -33,7 +33,7 @@
                                     </div>
                                 @endif
 
-                                <form id="{{ $document->id }}" action="{{ route('delete-docu') }}" method="POST"
+                                <form id="{{ $document->id }}" action="{{ route('restore-docu') }}" method="POST"
                                     class="d-none">
                                     <input type="hidden" name="docId" value="{{ $document->id }}">
                                     @csrf
