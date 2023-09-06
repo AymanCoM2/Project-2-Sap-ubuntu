@@ -3,6 +3,11 @@
 <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/j_jquery.dataTables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery_11_dataTables.min.js') }}"></script>
+
+
 <script type="text/javascript" src="{{ asset('js/buttons.html5.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jszip.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/pdfmake.min.js') }}"></script>
