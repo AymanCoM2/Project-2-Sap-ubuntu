@@ -49,7 +49,7 @@
                 $("#the-heading").html = data.row;
                 // document.getElementById("the-heading").innerHTML = data.row;
             }
-            // 
+
             // var pdfMake;
             // pdfMake.fonts = {
             //     Roboto: {
@@ -59,7 +59,7 @@
             //         bolditalics: 'Roboto-Italic.ttf'
             //     }
             // }; // Setting Up the Fonts For the Pdf  Report 
-            table = $('.data-table').dataTable({
+            table = $('.data-table').DataTable({
                 "columnDefs": [{
                     "targets": 1,
                     "createdCell": function(td, cellData, rowData, row, col) {
@@ -108,10 +108,20 @@
                 ],
                 // scrollX: true,
                 // x-scrolling:true  , 
+                fixedColumns: {
+                    left: 1,
+                    // right: 1
+                },
+                // paging: false,
+                // scrollCollapse: true,
+                // scrollX: true,
+                // scrollY: 300,
+
+
                 autoWidth: false,
                 order: [],
-                paging: true,
-                deferRender: true,
+                // paging: true,
+                // deferRender: true,
                 retrieve: false,
                 processing: true,
                 serverSide: false,
