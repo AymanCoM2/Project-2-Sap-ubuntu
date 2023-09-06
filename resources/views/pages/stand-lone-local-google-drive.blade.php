@@ -107,10 +107,12 @@
 
             @if (Auth::user()->isSuperUser == 2 && $document->uploaded_id == request()->user()->id && $document->isApproved == false)
                 {{-- This is For Images  --}}
-                <a href="{{ route('delete-docu') }}" class="btn btn-danger"
-                    onclick="event.preventDefault();
+                <div class="row">
+                    <a href="{{ route('delete-docu') }}" class="btn btn-danger"
+                        onclick="event.preventDefault();
                                         document.getElementById('{{ $document->id }}').submit();">Delete
-                    Img Approve</a>
+                        Img Approve</a>
+                </div>
             @endif
 
             <form id="{{ $document->id }}" action="{{ route('delete-docu') }}" method="POST" class="d-none">
