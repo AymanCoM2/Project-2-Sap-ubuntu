@@ -47,7 +47,7 @@
                     name: i
                 });
                 // $("#the-heading").html = data.row;
-                // document.getElementById("the-heading").innerHTML = data.row;
+                document.getElementById("the-heading").innerHTML = data.row;
             } // 
             pdfMake.fonts = {
                 Roboto: {
