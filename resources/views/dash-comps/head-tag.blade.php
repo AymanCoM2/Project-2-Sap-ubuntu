@@ -4,15 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap5.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/dash-style.css') }}" />
-    <link rel="stylesheet" href="{{asset('css/css_jquery.dataTables.min.css')}}">
-    {{-- <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}"> --}}
-    <link rel="stylesheet" href="{{ asset('css/dataTable.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/toastify.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/dash-style.css') }}" />
+    <link rel="stylesheet" href="{{URL::asset('css/css_jquery.dataTables.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{URL::asset('css/jquery.dataTables.min.css')}}"> --}}
+    <link rel="stylesheet" href="{{ URL::asset('css/dataTable.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/toastify.min.css') }}">
     <!----===== Boxicons CSS ===== -->
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('css/toastr.min.css') }}" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
