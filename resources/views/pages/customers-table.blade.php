@@ -48,7 +48,8 @@
                 });
                 $("#the-heading").html = data.row;
                 // document.getElementById("the-heading").innerHTML = data.row;
-            } // 
+            }
+            // 
             // var pdfMake;
             // pdfMake.fonts = {
             //     Roboto: {
@@ -58,8 +59,7 @@
             //         bolditalics: 'Roboto-Italic.ttf'
             //     }
             // }; // Setting Up the Fonts For the Pdf  Report 
-
-            table = $('.data-table').DataTable({
+            $('.data-table').DataTable({
                 "columnDefs": [{
                     "targets": 1,
                     "createdCell": function(td, cellData, rowData, row, col) {
