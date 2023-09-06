@@ -1,6 +1,6 @@
 <script src={{ asset('js/jquery.js') }}></script>
 <script src={{ asset('js/bootstrap.bundle.js') }}></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('js/jszip.min.js') }}"></script>

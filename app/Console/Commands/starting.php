@@ -18,30 +18,29 @@ class starting extends Command
 
     public function handle()
     {
-        // $adminUser = new User();
-        // $adminUser->name = 'admin';
-        // $adminUser->email = 'admin@admin.com';
-        // $adminUser->password = Hash::make('12345678');
-        // $adminUser->isSuperUser = 1;
-        // $adminUser->email_verified_at = now();
-        // $adminUser->save();
-         // 3 ->Viewer , 2->Editor , 1->Admin
+        $adminUser = new User();
+        $adminUser->name = 'admin';
+        $adminUser->email = 'admin@admin.com';
+        $adminUser->password = Hash::make('12345678');
+        $adminUser->isSuperUser = 1;
+        $adminUser->email_verified_at = now();
+        $adminUser->save();
+        // 3 ->Viewer , 2->Editor , 1->Admin
 
-         $editorUser = new User();
-         $editorUser->name = 'editor';
-         $editorUser->email = 'editor@editor.com';
-         $editorUser->password = Hash::make('12345678');
-         $editorUser->isSuperUser = 2;
-         $editorUser->email_verified_at = now();
-         $editorUser->save();
+        $editorUser = new User();
+        $editorUser->name = 'editor';
+        $editorUser->email = 'editor@editor.com';
+        $editorUser->password = Hash::make('12345678');
+        $editorUser->isSuperUser = 2;
+        $editorUser->email_verified_at = now();
+        $editorUser->save();
 
-         $viewerUser = new User();
-         $viewerUser->name = 'viewer';
-         $viewerUser->email = 'viewer@viewer.com';
-         $viewerUser->password = Hash::make('12345678');
-         $viewerUser->isSuperUser = 1;
-         $viewerUser->email_verified_at = now();
-         $viewerUser->save();
+        $viewerUser = new User();
+        $viewerUser->name = 'viewer';
+        $viewerUser->email = 'viewer@viewer.com';
+        $viewerUser->password = Hash::make('12345678');
+        $viewerUser->isSuperUser = 1;
+        $viewerUser->email_verified_at = now();
+        $viewerUser->save();
     }
 }
-
