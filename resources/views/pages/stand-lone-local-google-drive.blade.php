@@ -53,44 +53,6 @@
                             <div class="card-header">
                                 <p>{{ explode('--', $document->path)[1] }}</p>
                                 @if (Auth::user()->isSuperUser == 1)
-                                    <a href="{{ route('delete-docu') }}" class="btn btn-danger"
-                                        onclick="event.preventDefault();
-                                            document.getElementById('{{ $document->id }}').submit();">Delete</a>
-                                    @if (!$document->isApproved)
-                                        <a href="{{ route('approve-pdf', $document->id) }}"
-                                            class="btn btn-success">Approve</a>
-                                        <a href="{{ route('disapprove-pdf', $document->id) }}"
-                                            class="btn btn-warning">Dis-Approve</a>
-                                    @endif
-                                @endif
-
-                                @if (Auth::user()->isSuperUser == 2 && $document->uploaded_id == request()->user()->id && $document->isApproved == false)
-                                    {{-- This is For the pdfs Files  --}}
-                                    <a href="{{ route('delete-docu') }}" class="btn btn-danger"
-                                        onclick="event.preventDefault();
-                                            document.getElementById('{{ $document->id }}').submit();">Delete
-                                        Pdf Approve</a>
-                                @endif
-                                <form id="{{ $document->id }}" action="{{ route('delete-docu') }}" method="POST"
-                                    class="d-none">
-                                    <input type="hidden" name="docId" value="{{ $document->id }}">
-                                    @csrf
-                                </form>
-
-                                <form id="{{ $document->id }}" action="{{ route('delete-before-approval') }}"
-                                    method="POST" class="d-none">
-                                    <input type="hidden" name="docIdBeforeApprove" value="{{ $document->id }}">
-                                    @csrf
-                                </form>
-
-                            </div>
-                        </div>
-                    @else
-                        <div class="card col-6 ">
-                            <img src="{{ asset('storage/' . $document->path) }}" alt="" class="imgmime">
-                            <div class="card-header">
-                                <p>{{ explode('--', $document->path)[1] }}</p>
-                                @if (Auth::user()->isSuperUser == 1)
                                     <div class="row">
                                         <a href="{{ route('delete-docu') }}" class="btn btn-danger"
                                             onclick="event.preventDefault();
@@ -100,35 +62,73 @@
                                                 class="btn btn-success">Approve</a>
                                             <a href="{{ route('disapprove-pdf', $document->id) }}"
                                                 class="btn btn-warning">Dis-Approve</a>
-                                        @endif
                                     </div>
                                 @endif
+                    @endif
 
-                                @if (Auth::user()->isSuperUser == 2 && $document->uploaded_id == request()->user()->id && $document->isApproved == false)
-                                    {{-- This is For Images  --}}
-                                    <a href="{{ route('delete-docu') }}" class="btn btn-danger"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('{{ $document->id }}').submit();">Delete
-                                        Img Approve</a>
-                                @endif
-
-                                <form id="{{ $document->id }}" action="{{ route('delete-docu') }}" method="POST"
-                                    class="d-none">
-                                    <input type="hidden" name="docId" value="{{ $document->id }}">
-                                    @csrf
-                                </form>
-
-                                <form id="{{ $document->id }}" action="{{ route('delete-before-approval') }}"
-                                    method="POST" class="d-none">
-                                    <input type="hidden" name="docIdBeforeApprove" value="{{ $document->id }}">
-                                    @csrf
-                                </form>
-                            </div>
+                    @if (Auth::user()->isSuperUser == 2 && $document->uploaded_id == request()->user()->id && $document->isApproved == false)
+                        {{-- This is For the pdfs Files  --}}
+                        <div class="row">
+                            <a href="{{ route('delete-docu') }}" class="btn btn-danger"
+                                onclick="event.preventDefault();
+                                            document.getElementById('{{ $document->id }}').submit();">Delete
+                                Pdf Approve</a>
                         </div>
                     @endif
-                @endforeach
-            @endif
+                    <form id="{{ $document->id }}" action="{{ route('delete-docu') }}" method="POST" class="d-none">
+                        <input type="hidden" name="docId" value="{{ $document->id }}">
+                        @csrf
+                    </form>
+
+                    <form id="{{ $document->id }}" action="{{ route('delete-before-approval') }}" method="POST"
+                        class="d-none">
+                        <input type="hidden" name="docIdBeforeApprove" value="{{ $document->id }}">
+                        @csrf
+                    </form>
+
         </div>
+    </div>
+@else
+    <div class="card col-6 ">
+        <img src="{{ asset('storage/' . $document->path) }}" alt="" class="imgmime">
+        <div class="card-header">
+            <p>{{ explode('--', $document->path)[1] }}</p>
+            @if (Auth::user()->isSuperUser == 1)
+                <div class="row">
+                    <a href="{{ route('delete-docu') }}" class="btn btn-danger"
+                        onclick="event.preventDefault();
+                                            document.getElementById('{{ $document->id }}').submit();">Delete</a>
+                    @if (!$document->isApproved)
+                        <a href="{{ route('approve-pdf', $document->id) }}" class="btn btn-success">Approve</a>
+                        <a href="{{ route('disapprove-pdf', $document->id) }}" class="btn btn-warning">Dis-Approve</a>
+                    @endif
+                </div>
+            @endif
+
+            @if (Auth::user()->isSuperUser == 2 && $document->uploaded_id == request()->user()->id && $document->isApproved == false)
+                {{-- This is For Images  --}}
+                <a href="{{ route('delete-docu') }}" class="btn btn-danger"
+                    onclick="event.preventDefault();
+                                        document.getElementById('{{ $document->id }}').submit();">Delete
+                    Img Approve</a>
+            @endif
+
+            <form id="{{ $document->id }}" action="{{ route('delete-docu') }}" method="POST" class="d-none">
+                <input type="hidden" name="docId" value="{{ $document->id }}">
+                @csrf
+            </form>
+
+            <form id="{{ $document->id }}" action="{{ route('delete-before-approval') }}" method="POST"
+                class="d-none">
+                <input type="hidden" name="docIdBeforeApprove" value="{{ $document->id }}">
+                @csrf
+            </form>
+        </div>
+    </div>
+    @endif
+    @endforeach
+    @endif
+    </div>
     </div>
 
 
