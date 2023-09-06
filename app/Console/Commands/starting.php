@@ -18,13 +18,13 @@ class starting extends Command
 
     public function handle()
     {
-        $adminUser = new User();
-        $adminUser->name = 'admin';
-        $adminUser->email = 'admin@admin.com';
-        $adminUser->password = Hash::make('12345678');
-        $adminUser->isSuperUser = 1;
-        $adminUser->email_verified_at = now();
-        $adminUser->save();
+        // $adminUser = new User();
+        // $adminUser->name = 'admin';
+        // $adminUser->email = 'admin@admin.com';
+        // $adminUser->password = Hash::make('12345678');
+        // $adminUser->isSuperUser = 1;
+        // $adminUser->email_verified_at = now();
+        // $adminUser->save();
          // 3 ->Viewer , 2->Editor , 1->Admin
 
          $editorUser = new User();
