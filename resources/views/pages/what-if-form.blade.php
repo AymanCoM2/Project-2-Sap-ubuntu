@@ -45,7 +45,7 @@
 
     @if ((bool) $r)
         <input type="hidden" name="id" value="{{ $customerMySqlData->id }}">
-        <input type="hidden" name="CardCode" value="{{ $customerSapData->CardCode }}">
+        <input type="hidden" name="CardCode" value="{{ $customerSapData['CardCode'] }}">
         <input type="hidden" name="created_at" value="">
         <input type="hidden" name="updated_at" value="">
         @include('layouts.sep', ['variableName' => 'Group - 1'])

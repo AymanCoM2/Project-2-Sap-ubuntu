@@ -2,21 +2,21 @@
     <div class="row">
         <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light w-100 fw-bold">Creation Date :</label>
-            <p>{{ $customerSapData->CreateDate }}</p>
+            <p>{{ $customerSapData['CreateDate'] }}</p>
         </div>
         <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light  w-100 fw-bold">Group :</label>
-            <p>{{ $customerSapData->GroupName }}</p>
+            <p>{{ $customerSapData['GroupName'] }}</p>
         </div>
         <div class="col-sm-6">
             <label for="inputPassword4" class="form-label bg-light  w-100 fw-bold"> {{ __('CardCode', [], 'ar') }}
             </label>
-            <p>{{ $customerSapData->CardCode }} </p>
+            <p>{{ $customerSapData['CardCode'] }} </p>
         </div>
         <div class="col-sm-6">
             <label for="inputPassword4" class="form-label bg-light  w-100 fw-bold"> {{ __('CardName', [], 'ar') }}
             </label>
-            <p>{{ $customerSapData->CardName }} </p>
+            <p>{{ $customerSapData['CardName'] }} </p>
         </div>
 
         <div class="col-sm-6">

@@ -259,10 +259,10 @@
                                 // Credit Line From SAP  = 0
                                 // Creadit Line from Excel = 50000 ?????
                                 $calcSix = '';
-                                if ($finalValue == (int) $customerSapData->CreditLine) {
+                                if ($finalValue == (int) $customerSapData['CreditLine']) {
                                     $calcSix = 'مطابق';
                                     echo $calcSix;
-                                } elseif ($finalValue > (int) $customerSapData->CreditLine) {
+                                } elseif ($finalValue > (int) $customerSapData['CreditLine']) {
                                     $calcSix = 'السند اكبر';
                                     echo $calcSix;
                                 } else {
@@ -286,7 +286,7 @@
                                 $firstTrue = $f_1 && $f_2 && $f_3 && $f_4;
                                 
                                 $s_1 = $customerMySqlData->OrderBond == 'مستثنى';
-                                $s_2 = $customerMySqlData->ValueOrderException == $customerSapData->CreditLine;
+                                $s_2 = $customerMySqlData->ValueOrderException == $customerSapData['CreditLine'];
                                 $secondTrue = $s_1 && $s_2;
                                 
                                 if ($firstTrue || $secondTrue) {

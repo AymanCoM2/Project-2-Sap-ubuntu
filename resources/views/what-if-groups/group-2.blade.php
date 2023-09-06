@@ -5,7 +5,7 @@
             <label for="inputEmail4"
                 class="form-label bg-light w-100 w-100 fw-bold">{{ __('GovernmentTaxIdentifier', [], 'ar') }}
                 :</label>
-            <p>{{ $customerSapData->LicTradNum }}</p>
+            <p>{{ $customerSapData['LicTradNum'] }}</p>
         </div>
 
         <div class="col-sm-4">
