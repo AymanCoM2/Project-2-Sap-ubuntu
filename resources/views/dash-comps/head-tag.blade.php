@@ -6,12 +6,12 @@
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dash-style.css') }}" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{ asset('css/css_jquery.dataTables.min.css') }}">
     {{-- <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}"> --}}
     <link rel="stylesheet" href="{{ asset('css/dataTable.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/toastify.min.css') }}">
     <!----===== Boxicons CSS ===== -->
-    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+    <link href="{{ asset('css/boxicons.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
