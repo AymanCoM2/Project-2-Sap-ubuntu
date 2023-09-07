@@ -47,9 +47,9 @@
                         data: i,
                         name: i
                     });
-                    $("#the-heading").html = data.row;
                     // document.getElementById("the-heading").innerHTML = data.row;
                 }
+                $("#the-heading").html = data.row;
 
                 // var pdfMake;
                 // pdfMake.fonts = {
@@ -119,8 +119,6 @@
                     // scrollCollapse: true,
                     // scrollX: true,
                     // scrollY: 300,
-
-
                     autoWidth: false,
                     order: [],
                     // paging: true,
