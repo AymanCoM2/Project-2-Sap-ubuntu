@@ -45,6 +45,20 @@
                         <div class="card col-6 ">
                             <img src="{{ asset('storage/' . $document->path) }}" alt="" class="imgmime"
                                 width="200">
+
+                            @if (Auth::user()->isSuperUser == 1)
+                                <div class="row">
+                                    <a href="{{ route('restore-docu') }}" class="btn btn-success"
+                                        onclick="event.preventDefault();
+                                    document.getElementById('{{ $document->id }}').submit();">Restore</a>
+                                </div>
+                            @endif
+
+                            <form id="{{ $document->id }}" action="{{ route('restore-docu') }}" method="POST"
+                                class="d-none">
+                                <input type="hidden" name="docId" value="{{ $document->id }}">
+                                @csrf
+                            </form>
                         </div>
                     @endif
                 @endforeach
