@@ -123,7 +123,7 @@
         <div class="spinner-grow d-none" role="status" id="loadingSpinner"></div>
     </div>
 
-    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/code.jquery.com_jquery-3.7.0.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script>
         $(document).ready(function() {
