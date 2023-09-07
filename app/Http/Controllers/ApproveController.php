@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customers;
+use App\Models\EditGrave;
 use App\Models\EditHistory;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,18 @@ class ApproveController extends Controller
 {
     public function approveField(Request $request)
     {
+        // TODO
+        // It is Now for Disapproval NOT for Approval 
         $verticalPosition  = $request->scrollY;
         $approvedLog  = EditHistory::where('id', $request->approveFieldId)->first();
+        $editGrave = new EditGrave();
+
+        $editGrave->cardCode  = $approvedLog->cardCode;
+        $editGrave->editor_id =  $approvedLog->editor_id;
+        $editGrave->fieldName =  $approvedLog->fieldName;
+        $editGrave->oldValue  = $approvedLog->oldValue;
+        $editGrave->newValue  = $approvedLog->newValue;
+        $editGrave->save();
         $approvedLog->delete();
         return back()->with(['posY' => $verticalPosition]);
     }

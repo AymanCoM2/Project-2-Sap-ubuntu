@@ -26,8 +26,7 @@
                         <td>{{ $editHistory->fieldName }}</td>
                         <td>{{ $editHistory->oldValue }}</td>
                         <td>{{ $editHistory->newValue }}</td>
-                        <td style="background-color: {{ $editHistory->isApproved ? 'blue' : 'red' }}">
-                            {{ $editHistory->isApproved ? 'Yes' : 'No' }}</td>
+                        <td style="background-color: 'red' ;">No</td>
                         <td>{{ $editHistory->updated_at->toDateString() }}</td>
                     </tr>
                 @endforeach
