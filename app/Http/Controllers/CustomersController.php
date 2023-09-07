@@ -225,7 +225,7 @@ class CustomersController extends Controller
     {
         $posY = 0;
         // FORM 
-        $customerSapData  =(array) self::getSingleCustomerData($cardCode);
+        $customerSapData  = (array) self::getSingleCustomerData($cardCode);
         // dd($customerSapData); // Data From SAP OK 
         $customerMySqlData  = Customers::where('CardCode', $cardCode)->first();
         // dd($customerMySqlData); // Data From MySQL Ok 
@@ -279,7 +279,7 @@ class CustomersController extends Controller
     }
 
 
-    public function handleCustomersForm(FormGroupingRequest $request)
+    public function handleCustomersForm(Request $request)
     {
         dd($request);
         if ($request->user()->isSuperUser == 1) {
