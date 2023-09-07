@@ -59,7 +59,7 @@
             //         bolditalics: 'Roboto-Italic.ttf'
             //     }
             // }; // Setting Up the Fonts For the Pdf  Report 
-            table = $('.data-table').DataTable({
+            table = jQuery('.data-table').DataTable({
                 "columnDefs": [{
                     "targets": 1,
                     "createdCell": function(td, cellData, rowData, row, col) {
