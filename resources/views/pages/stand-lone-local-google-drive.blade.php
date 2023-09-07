@@ -146,7 +146,7 @@
                         multiple>
                     <input type="hidden" value="{{ $cardCode }}" name="code">
                 </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="submit" class="btn btn-warning">Upload</button>
             </form>
         </div>
     @endif
@@ -167,7 +167,7 @@
     </div>
     <script src="{{ asset('js/pdfThumbnails.js') }}" data-pdfjs-src="{{ asset('js/pdf.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/code.jquery.com_jquery-3.7.0.js') }}"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
 

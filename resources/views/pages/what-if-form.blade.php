@@ -67,7 +67,7 @@
     {{-- <div class="disabled-overlay" id="overlay"></div> --}}
     <br>
 
-    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/code.jquery.com_jquery-3.7.0.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
 
 
