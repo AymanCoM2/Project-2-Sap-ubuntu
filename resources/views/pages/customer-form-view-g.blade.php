@@ -187,7 +187,6 @@
             });
             // Above is the First One  >> نقدى
 
-
             $(':input[name="OrderBond"]').change(function() {
                 if ($(this).val() == 'غير موجود' && $(this).is(':checked')) {
                     $('.sanad-g').find('input, [type=date], textarea').prop('disabled', true);
