@@ -278,8 +278,6 @@ class CustomersController extends Controller
         return view('pages.customer-frame-view-local', compact(['cardCode']));
     }
 
-
-    // 
     public function handleCustomersForm(FormGroupingRequest $request)
     {
         if ($request->user()->isSuperUser == 1) {
