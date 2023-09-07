@@ -47,9 +47,10 @@
                         data: i,
                         name: i
                     });
-                    // document.getElementById("the-heading").innerHTML = data.row;
+                    
                 }
-                $("#the-heading").html = data.row;
+                document.getElementById("the-heading").innerHTML = data.row;
+                // $("#the-heading").html = data.row;
 
                 // var pdfMake;
                 // pdfMake.fonts = {
