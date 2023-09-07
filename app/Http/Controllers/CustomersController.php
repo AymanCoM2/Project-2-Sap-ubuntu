@@ -279,10 +279,9 @@ class CustomersController extends Controller
     }
 
 
-    // FormGroupingRequest
-    public function handleCustomersForm(Request $request)
+    // 
+    public function handleCustomersForm(FormGroupingRequest $request)
     {
-        dd($request);
         if ($request->user()->isSuperUser == 1) {
             $updatedCustomer  = Customers::where('id', $request->id)->first();
             $updatedCustomer->update($request->all());

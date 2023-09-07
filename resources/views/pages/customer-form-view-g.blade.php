@@ -192,6 +192,7 @@
                     $('.sanad-g').find('input, [type=date], textarea').prop('disabled', true);
                     $('.sanad-g').find('input, [type=date], textarea').val('');
                     $('.sanad-g').find('input[type=radio]').prop('checked', false);
+                    $(this).prop('disabled', false);
                     $(this).prop('checked', true);
                     $(this).val('غير موجود');
                 } else if ($(this).val() != '' && $(this).is(':checked')) {
