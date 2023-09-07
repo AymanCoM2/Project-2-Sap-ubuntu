@@ -149,7 +149,7 @@
                         multiple>
                     <input type="hidden" value="{{ $cardCode }}" name="code">
                 </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="submit" class="btn btn-primary float-end">Upload</button>
             </form>
         </div>
     @endif
