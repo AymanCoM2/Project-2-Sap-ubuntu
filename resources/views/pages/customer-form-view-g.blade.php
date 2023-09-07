@@ -55,6 +55,15 @@
                     Side)</a>
                 <a href="{{ route('customer-drive', $cardCode) }}" id="iframeLink3">Check Docs(Same page)</a>
             </div>
+            {{--  --}}
+            {{--  --}}
+            {{--  --}}
+            <div class="row">
+                <a href="" class="btn btn-warning">Click To Load Data Of What If Into Form TO Re-Edit</a>
+            </div>
+            {{--  --}}
+            {{--  --}}
+            {{--  --}}
         @endif
     @endif
     <form action="{{ route('approve') }}" method='POST' class='' id='logout-form'>
