@@ -23,10 +23,10 @@
                             </a>
                         </th>
                         <td>{{ $editHistory->editor_id }}</td>
-                        <td>{{ $editHistory->fieldName }}</td>
+                        <td>{{ __($editHistory->fieldName, [], 'ar') }}</td>
                         <td>{{ $editHistory->oldValue }}</td>
                         <td>{{ $editHistory->newValue }}</td>
-                        <td style="background-color: 'red' ;">No</td>
+                        <td style="background-color:red;">No</td>
                         <td>{{ $editHistory->updated_at->toDateString() }}</td>
                     </tr>
                 @endforeach
