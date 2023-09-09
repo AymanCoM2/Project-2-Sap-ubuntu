@@ -47,7 +47,6 @@
                         data: i,
                         name: i
                     });
-
                 }
                 document.getElementById("the-heading").innerHTML = data.row;
                 // $("#the-heading").html = data.row;

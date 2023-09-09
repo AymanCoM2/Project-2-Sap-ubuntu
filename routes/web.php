@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\CardCode;
+use App\Models\EditHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -32,3 +33,11 @@ Route::get('/new-codes', function (Request $request) {
 
     return view('pages.new-codes', compact('allNewCardCodes'));
 })->middleware('lev1')->name('new-codes-get');
+
+
+
+Route::get('/load-what-if-data', function (Request $request) {
+    $cardCode = $request->cardCode;
+    $lastEditHistory = EditHistory::where('cardCode', $cardCode)->get();
+    return response()->json(['result' => json_encode($lastEditHistory)]);
+})->name('load-what-if-data');

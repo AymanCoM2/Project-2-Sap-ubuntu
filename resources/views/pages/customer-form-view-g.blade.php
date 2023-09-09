@@ -57,11 +57,11 @@
             </div>
             {{--  --}}
             {{--  --}}
-            {{--  --}}
             <div class="row">
-                <a href="" class="btn btn-warning">Click To Load Data Of What If Into Form TO Re-Edit</a>
+                <button id="load_what_if" class="btn btn-warning">Click To Load Data Of What If Into Form TO
+                    Re-Edit</button>
+                <input type="hidden" id="what_if_card_code" value="{{ $cardCode }}">
             </div>
-            {{--  --}}
             {{--  --}}
             {{--  --}}
         @endif
@@ -691,6 +691,11 @@
     @include('unified.HijriLoad')
     @if (Auth::user()->isSuperUser == 3)
         @include('unified.viewer-js')
+    @endif
+
+    {{-- // TODO Only if the User Is Editor Or admin  --}}
+    @if (Auth::user()->isSuperUser == 1 || Auth::user()->isSuperUser == 2)
+        @include('unified.load-what-if')
     @endif
 </body>
 
