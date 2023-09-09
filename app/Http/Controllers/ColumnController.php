@@ -19,12 +19,9 @@ class ColumnController extends Controller
     {
         $allColumnTypes = ColumnType::all();
         foreach ($allColumnTypes as $column) {
-            $editedColumn = ColumnType::where('colName', $column->colName)->first();
-            if ($editedColumn) {
-                $columnName = $column->colName;
-                $editedColumn->colType = $request->input($columnName);
-                $editedColumn->save();
-            }
+            $columnName = $column->colName;
+            $column->colType = $request->input($columnName);
+            $column->save();
         }
         return back();
     }
