@@ -20,7 +20,7 @@ class ColumnController extends Controller
         $allColumnTypes  = ColumnType::all();
         foreach ($allColumnTypes as $key => $column) {
             $editedColumn  = ColumnType::where('colName', $column->colName)->first();
-            $editedColumn->colType = $reuqest[$column->colName];
+            $editedColumn->colType = $reuqest->{$column->colName};
             $editedColumn->save();
         }
         return back();
