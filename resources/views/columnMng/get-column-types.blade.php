@@ -15,8 +15,10 @@
                             <option @if ($column->colType == 'string') {{ 'selected' }} @endif value="string">string
                             </option>
                             <option @if ($column->colType == 'ddl') {{ 'selected' }} @endif value="ddl">ddl</option>
-                            <option @if ($column->colType == 'date') {{ 'selected' }} @endif value="date">date</option>
-                            <option @if ($column->colType == 'number') {{ 'selected' }} @endif value="number">number</option>
+                            <option @if ($column->colType == 'date') {{ 'selected' }} @endif value="date">date
+                            </option>
+                            <option @if ($column->colType == 'number') {{ 'selected' }} @endif value="number">number
+                            </option>
                         </select>
                     </div>
                 </div>
