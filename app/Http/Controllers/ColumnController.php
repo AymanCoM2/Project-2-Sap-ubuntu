@@ -17,20 +17,15 @@ class ColumnController extends Controller
 
     public function columnTypesPost(Request $request)
     {
-        // Get all column types
         $allColumnTypes = ColumnType::all();
-        // Iterate through the column types
         foreach ($allColumnTypes as $column) {
-            // Find the corresponding column type in the database
             $editedColumn = ColumnType::where('colName', $column->colName)->first();
             if ($editedColumn) {
-                // Update the column type with the value from the request
-                $editedColumn->colType = $request->input($column->colName);
-                // Save the changes
+                $columnName = $column->colName;
+                $editedColumn->colType = $request->input($columnName);
                 $editedColumn->save();
             }
         }
-        // Redirect back to the previous page
         return back();
     }
     public function columnDDLGet()
