@@ -22,10 +22,7 @@
                     <select name="theDDL" class="form-select" id="theDdlWheel">
                         @foreach ($allColumnNames as $colName)
                             <option value="{{ $colName }}"
-                                @if (session()->get('selectedOption')) {{-- @php
-                                        dd(session()->get('selectedOption')) ;
-                                    @endphp --}}
-                                   @if ($colName == session()->get('selectedOption'))
+                                @if (session()->get('selectedOption')) @if ($colName == session()->get('selectedOption'))
                                    {
                                      {{ 'selected' }} 
                                    } @endif

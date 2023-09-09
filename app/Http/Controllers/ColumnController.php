@@ -15,17 +15,24 @@ class ColumnController extends Controller
         return view('columnMng.get-column-types', compact('allColumnTypes'));
     }
 
-    public function columnTypesPost(Request $reuqest)
+    public function columnTypesPost(Request $request)
     {
-        $allColumnTypes  = ColumnType::all();
-        foreach ($allColumnTypes as $key => $column) {
-            $editedColumn  = ColumnType::where('colName', $column->colName)->first();
-            $editedColumn->colType = $reuqest->{$column->colName};
-            $editedColumn->save();
+        // Get all column types
+        $allColumnTypes = ColumnType::all();
+        // Iterate through the column types
+        foreach ($allColumnTypes as $column) {
+            // Find the corresponding column type in the database
+            $editedColumn = ColumnType::where('colName', $column->colName)->first();
+            if ($editedColumn) {
+                // Update the column type with the value from the request
+                $editedColumn->colType = $request->input($column->colName);
+                // Save the changes
+                $editedColumn->save();
+            }
         }
+        // Redirect back to the previous page
         return back();
     }
-
     public function columnDDLGet()
     {
         $allColumnNames  = ColumnType::where('colType', 'ddl')->pluck('colName')->all();
