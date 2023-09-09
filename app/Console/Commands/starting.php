@@ -37,7 +37,7 @@ class starting extends Command
         $viewerUser->name = 'viewer';
         $viewerUser->email = 'viewer@viewer.com';
         $viewerUser->password = Hash::make('12345678');
-        $viewerUser->isSuperUser = 1;
+        $viewerUser->isSuperUser = 3;
         $viewerUser->email_verified_at = now();
         $viewerUser->save();
     }
