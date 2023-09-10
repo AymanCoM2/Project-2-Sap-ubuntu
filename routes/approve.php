@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ApproveController;
 use App\Models\EditGrave;
-use App\Models\EditHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

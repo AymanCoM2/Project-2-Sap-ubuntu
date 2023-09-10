@@ -1,2 +1,6 @@
 This Version Works On Both 
     - Windows And Ubuntu ; 
+================
+The Percentage For the Calculation  ; 
+Date Fromat For Hijre and Georgian 
+===================
