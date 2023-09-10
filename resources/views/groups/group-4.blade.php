@@ -207,7 +207,12 @@
                     $finalValue = (int) $customerMySqlData->ValueOrderException;
                     echo $finalValue . ' - SAR';
                 } else {
-                    $finalValue = (int) $customerMySqlData->ValueOrderException / 2;
+                    if ($customerMySqlData->COM == 'LB') {
+                        $finalValue = (int) $customerMySqlData->ValueOrderException / 2;
+                    } else {
+                        $finalValue = (int) $customerMySqlData->ValueOrderException * 0.8;
+                    }
+                
                     echo $finalValue . ' - SAR';
                 }
             @endphp</p>

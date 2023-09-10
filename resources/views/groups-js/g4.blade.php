@@ -8,7 +8,12 @@
             var selectedValue = $(this).val();
             if (selectedValue == 'موجود') {
                 markRequired();
-                $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                if ($('#COM').text() == 'LB') {
+                    $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                } else {
+                    $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
+                }
+
                 // HERE 
                 let creditSapValue = Number($('p[name="CreditLine_p"]').text());
                 let mazValue = Number($('p[name="mazbota"]').text());
@@ -50,9 +55,15 @@
             let selectedValue = $(':input[name="OrderBond"]:checked').val();
             if (selectedValue == 'موجود') {
                 // markRequired();
-                $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
-                mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
-                console.log(mazValue);
+                if ($('#COM').text() == 'LB') {
+                    $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                    mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                } else {
+                    $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
+                    mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / * 0.8);
+                }
+
+                // console.log(mazValue);
             } else if (selectedValue == 'مستثنى') {
                 // markRequired();
                 $('p[name="mazbota"]').text($(':input[name="ValueOrderException"]').val());
