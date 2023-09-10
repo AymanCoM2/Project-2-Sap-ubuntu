@@ -57,6 +57,8 @@ Route::post('/options', function (ExcelRequest $request) {
             'colName' =>  $value,
         ]);
     }
+    DB::table('column_types')->truncate(); // In Case More than One import 
+    ColumnOption::truncate(); // Also Remove the Old Options 
     DB::table('column_types')->insert($secondData);
 
     $collections = (new FastExcel)->import($request->excelFile);
@@ -66,6 +68,7 @@ Route::post('/options', function (ExcelRequest $request) {
         "OrgLegalStatue",
         "OpenAccountPropose",
         "CommercialRegister",
+        'CrCnMatch', // ADDED this New option Here For the Arrayt Combinatin 
         "TaxCard",
         "CommLicense",
         "OrderBond",

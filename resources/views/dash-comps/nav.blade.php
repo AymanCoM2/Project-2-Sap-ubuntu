@@ -13,7 +13,7 @@
                 </div>
             </a>
         </div>
-        
+
         <i class="bx bx-chevron-right toggle mt-5"></i>
     </header>
 
@@ -97,6 +97,17 @@
 
                 @if (Auth::user()->isSuperUser == 2)
                     {{-- Editor    --}}
+
+                    <li class="nav-link">
+                        <a href="{{ route('new-codes-get') }}">
+                            <i class='bx bx-message-rounded-add icon'></i>
+                            <span class="text nav-text">New
+                                <span class="badge bg-danger">
+                                    {{ App\Models\CardCode::all()->count() }}</span>
+                            </span>
+                        </a>
+                    </li>
+
                     <li class="nav-link">
                         <a href="{{ route('get-all-customers') }}">
                             <i class="bx bx-bar-chart-alt-2 icon"></i>

@@ -49,7 +49,8 @@ return new class extends Migration
             $table->string('ValueBondOrExceptionBranches')->nullable();
             // "قيمة السند او الاستثناء الاجمالية للفروع"  > "ValueBondOrExceptionBranches"
 
-
+            $table->string('COM')->nullable();
+            // THIS IS to tell the Type Of the Company For the Customer  ; 
             /**
              *   ! NOW THE RADIO BUTTON FIELDS : 
              */

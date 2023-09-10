@@ -65,7 +65,10 @@ class ImportingController extends Controller
                 'ObFrstSeeIdImg' => $collection[" صورة عن هوية الشاهد الاول في السند الامر"],
                 'ObScndSeeIdImg' => $collection[" صورة عن هوية الشاهد الثانى في السند الامر"],
                 'NationalAddrOrgImg' => $collection[" صورة عن العنوان الوطني للمؤسسة"],
-                'NationalAddrFirstSupOb' => $collection[" صورة عن العنوان الوطني للضامن الاحتياطي في سند الامر"]
+                'NationalAddrFirstSupOb' => $collection[" صورة عن العنوان الوطني للضامن الاحتياطي في سند الامر"],
+
+                'COM' => $collection['COM']
+                // TM or LB 
             ]);
         }
         // dd($data) ;
@@ -113,6 +116,7 @@ class ImportingController extends Controller
         //         'colName' =>  $value,
         //     ]);
         // }
+        // DB::table('customers')->truncate();
         DB::table('customers')->insert($data);
         // DB::table('column_types')->insert($secondData);
         // Toastr::success(count($data) . ' - Products imported successfully!');
