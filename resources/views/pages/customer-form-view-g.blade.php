@@ -218,6 +218,14 @@
                     $('.sejel').find('input, [type=date], textarea').val('');
                     $('.sejel').find('input[type=radio]').prop('checked', false);
                     $('.mixsanseg').find('input[type=radio]').prop('checked', false);
+                } else if ($(this).val() == 'موجود' && $(this).is(':checked')) {
+                    // Check OrderBond 
+                    if ($(':input[name="OrderBond"]').val() == 'موجود' || $(':input[name="OrderBond"]')
+                        .val() == 'مستثنى') {
+                            $('.mixsanseg').find('input, [type=date], textarea').prop('disabled', false);
+                            // $('.mixsanseg').find('input[type=radio]').prop('checked', false);
+                    }
+
                 } else if ($(this).val() != '' && $(this).is(':checked')) {
                     $('.sejel').find('input, [type=date], textarea').prop('disabled', false);
                     // $('.mixsanseg').find('input, [type=date], textarea').prop('disabled', false);

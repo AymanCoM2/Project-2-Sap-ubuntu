@@ -9,15 +9,39 @@
             if (selectedValue == 'موجود') {
                 markRequired();
                 $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
-                // $('p[name="mazbota"]').text('1');
+                // HERE 
+                let creditSapValue = Number($('p[name="CreditLine_p"]').text());
+                let mazValue = Number($('p[name="mazbota"]').text());
+                if (Number(mazValue) == creditSapValue) {
+                    $('p[name="motabaqa"]').text('مطابق');
+                } else if (Number(mazValue) > creditSapValue) {
+                    $('p[name="motabaqa"]').text('السند اكبر');
+                } else if (Number(mazValue) == 0) {
+                    $('p[name="motabaqa"]').text('السند غير موجود');
+                } else {
+                    $('p[name="motabaqa"]').text('السند اصغر');
+                }
+                // HERE 
             } else if (selectedValue == 'مستثنى') {
                 markRequired();
                 $('p[name="mazbota"]').text($(':input[name="ValueOrderException"]').val());
+                // HERE 
+                let creditSapValue = Number($('p[name="CreditLine_p"]').text());
+                let mazValue = Number($('p[name="mazbota"]').text());
+                if (Number(mazValue) == creditSapValue) {
+                    $('p[name="motabaqa"]').text('مطابق');
+                } else if (Number(mazValue) > creditSapValue) {
+                    $('p[name="motabaqa"]').text('السند اكبر');
+                } else if (Number(mazValue) == 0) {
+                    $('p[name="motabaqa"]').text('السند غير موجود');
+                } else {
+                    $('p[name="motabaqa"]').text('السند اصغر');
+                }
+                // HERE 
             } else {
                 removeRequired();
                 $('p[name="mazbota"]').text('0');
             }
-
             claculateHSL()
         });
         // 

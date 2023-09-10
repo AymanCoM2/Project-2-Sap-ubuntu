@@ -112,7 +112,7 @@
                     // scrollX: true,
                     // x-scrolling:true  , 
                     fixedColumns: {
-                        left: 1,
+                        left: 2,
                         // right: 1
                     },
                     // paging: false,
