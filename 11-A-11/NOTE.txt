@@ -4,3 +4,4 @@ This Version Works On Both
 The Percentage For the Calculation  ; 
 Date Fromat For Hijre and Georgian 
 ===================
+

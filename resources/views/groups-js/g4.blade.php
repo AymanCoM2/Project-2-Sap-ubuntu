@@ -60,7 +60,7 @@
                     mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
                 } else {
                     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
-                    mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / * 0.8);
+                    mazValue = Number(Number($(':input[name="ValueOrderException"]').val())  * 0.8);
                 }
 
                 // console.log(mazValue);
