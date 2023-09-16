@@ -1,11 +1,13 @@
-{
-    Note ## It is Arabic So every Letter Makes a Difference " With Dots Or without"
-    Note :## Disappove Can Be VERY Dangerous 
-    ==========================================================
-    الياء بالنقطة تفرق 
-    ==========================
-    ==============================================
-}
+    {
+        Note ## It is Arabic So every Letter Makes a Difference " With Dots Or without"
+        Note :## Disappove Can Be VERY Dangerous 
+        ==========================================================
+        الياء بالنقطة تفرق 
+        ==========================
+        ==============================================
+    }
+
+
 1 - DB credits are OK [ Make sure of that ]
 1- Migrate Fresh Tables : 
     $ php artisan migrate:fresh 

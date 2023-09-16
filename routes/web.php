@@ -5,7 +5,8 @@ use App\Models\EditHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], __DIR__ . '/utility.php'); // * Ok 
@@ -41,3 +42,20 @@ Route::get('/load-what-if-data', function (Request $request) {
     $lastEditHistory = EditHistory::where('cardCode', $cardCode)->get();
     return response()->json(['result' => json_encode($lastEditHistory)]);
 })->name('load-what-if-data');
+
+
+
+// Route::get('/change' , function (){
+    
+//     // DB Name Only Changed Once For this Request ;
+//     dump(DB::connection()->getDatabaseName());
+//     Config::set('database.connections.mysql.database','sap-proj-TM');
+// }) ; 
+
+
+
+// Route::get('/change-after' , function (){
+//     // Config::set('database.connections.mysql.database','sap-proj-TM');
+//     // dump(session()->get('dbName'));
+//     dump(DB::connection()->getDatabaseName());
+// }) ; 

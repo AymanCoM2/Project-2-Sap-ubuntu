@@ -2,8 +2,9 @@
     - Before Log in ask For the DB name "LB or TM" 
     - In the Dashboard , Show a title to show what is the DB name  ;
 
-
-
+// config(['database.default' => 'mysql']);
+php artisan migrate --database=sap-proj-LB
+=====================================
 1-REPORTS ; 
 ===============
 نوع العميل بتبقى فاضية ف البداية حتى 
