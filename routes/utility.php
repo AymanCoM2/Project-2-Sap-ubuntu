@@ -4,6 +4,7 @@ use App\Http\Controllers\DocumentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportingController;
 use App\Http\Controllers\LocalStorageController;
+use App\Models\DissapprovedFile;
 use App\Models\Documents;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -39,8 +40,13 @@ Route::get('/approve-pdf-file/{pdf}', function (Request $request) {
 
 Route::get('/disapprove-pdf-file/{pdf}', function (Request $request) {
     $documentId  = $request->pdf;
-    $disApprovedDoc = Documents::where('id', $documentId);
+    $disApprovedDoc = Documents::where('id', $documentId)->first();
     // Delete it Permanently 
+    // dd($disApprovedDoc->uploaded_id);
+    $disapprovedFile  = new DissapprovedFile();
+    $disapprovedFile->uploader_id = $disApprovedDoc->uploaded_id;
+    $disapprovedFile->filePathName = $disApprovedDoc->path;
+    $disapprovedFile->save();
     $disApprovedDoc->forceDelete();
     Toastr::info('File is Dis-Approved');
     return back();

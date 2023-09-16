@@ -129,6 +129,13 @@
                             <span class="text nav-text">Editor History</span>
                         </a>
                     </li>
+
+                    <li class="nav-link">
+                        <a href="{{ route('editor-approval-history-files') }}">
+                            <i class='bx bx-vertical-center icon'></i>
+                            <span class="text nav-text">Disapproved Files</span>
+                        </a>
+                    </li>
                 @endif
 
                 @if (Auth::user()->isSuperUser == 3)
