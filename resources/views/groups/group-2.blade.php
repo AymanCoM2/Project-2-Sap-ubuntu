@@ -1,15 +1,9 @@
 <div class="container-fluid ">
     <div class="row">
-        {{-- 1 Ok  --}}
-        <div class="col-sm-4">
-            <label for="inputEmail4"
-                class="form-label bg-light w-100 w-100 fw-bold">{{ __('GovernmentTaxIdentifier', [], 'ar') }}
-                :</label>
-            <p>{{ $customerSapData['LicTradNum'] }}</p>
-        </div>
+
 
         {{-- 2 --}}
-        <div class="col-sm-4 {{ $errors->has('OpenAccountPropose') ? 'border border-danger' : '' }} ">
+        <div class="col-sm-6 {{ $errors->has('OpenAccountPropose') ? 'border border-danger' : '' }} ">
             <label for="" class="form-label bg-light w-100 fw-bold d-block">
                 {{ __('OpenAccountPropose', [], 'ar') }}
             </label>
@@ -67,7 +61,7 @@
         </div>
 
         {{-- 3 --}}
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light w-100 fw-bold">حالة طلب فتح الحساب</label>
             <p name="calc_g2_1">@php
                 if ($customerMySqlData->CommercialRegister == 'موجود' || $customerMySqlData->CommercialRegister == 'مستثنى') {
@@ -206,8 +200,8 @@
             @endphp
         </div>
 
-        <div
-            class="col-sm-6 sejel  {{ $errors->has('CrCnMatch') && old('CommercialRegister') == 'موجود' ? 'border border-danger' : '' }}" name="CrCnMatchLabel">
+        <div class="col-sm-6 sejel  {{ $errors->has('CrCnMatch') && old('CommercialRegister') == 'موجود' ? 'border border-danger' : '' }}"
+            name="CrCnMatchLabel">
             <label for="" class="form-label bg-light w-100 fw-bold d-block" name="">
                 {{ __('CrCnMatch', [], 'ar') }}
             </label>
@@ -278,7 +272,17 @@
             @endphp</p>
         </div>
 
-        <div class="col-sm-6 {{ $errors->has('TaxCard') ? 'border border-danger' : '' }}">
+
+        {{-- 1 Ok  --}}
+        <div class="col-sm-4">
+            <label for="inputEmail4"
+                class="form-label bg-light w-100 w-100 fw-bold">{{ __('GovernmentTaxIdentifier', [], 'ar') }}
+                :</label>
+            <p>{{ $customerSapData['LicTradNum'] }}</p>
+        </div>
+
+        {{--  --}}
+        <div class="col-sm-4 {{ $errors->has('TaxCard') ? 'border border-danger' : '' }}">
             <label for="" class="form-label bg-light w-100 fw-bold d-block"> {{ __('TaxCard', [], 'ar') }}
             </label>
             @php
@@ -335,7 +339,8 @@
             @endphp
         </div>
 
-        <div class="col-sm-6">
+        {{--  --}}
+        <div class="col-sm-4">
             <label for="inputEmail4" class="form-label bg-light w-100 fw-bold">حالة البطاقة الضريبية</label>
             <p name="Rttv_dt_e"> @php
                 if ($customerMySqlData->TaxCard == 'موجود' && strlen($customerSapData['LicTradNum']) == 15) {

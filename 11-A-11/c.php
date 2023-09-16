@@ -7,7 +7,7 @@ if (strcasecmp($firstWord, 'Windows') === 0) {
     $data = DB::connection('sqlsrv')->select($sap_Query);
 } else {
     $serverName = "10.10.10.100";
-    $databaseName = "LB";
+    $databaseName = "TM";
     $uid = "ayman";
     $pwd = "admin@1234";
     $options = [

@@ -24,7 +24,7 @@ Route::post('/bbb', function (Request $request) {
     MAX(T0.[Balance]) 'Balance',
     MAX(T0.CreditLinE) 'CreditLinE'
 
-    FROM LB.DBO.[2022DueMaster] T0
+    FROM TM.DBO.[2022DueMaster] T0
     WHERE T0.[Due Period] >= 60
     GROUP BY T0.CCode),
 
@@ -38,7 +38,7 @@ Route::post('/bbb', function (Request $request) {
     END AS 'Avaliable CreditLine' , T0.Free_Text, T0.GroupNum
 
 
-    FROM (LB.DBO.OCRD T0 LEFT JOIN LB.DBO.OCRG C1 ON T0.GroupCode = C1.GroupCode)
+    FROM (TM.DBO.OCRD T0 LEFT JOIN TM.DBO.OCRG C1 ON T0.GroupCode = C1.GroupCode)
     LEFT JOIN CustDue T1 ON T1.CCode = T0.CardCode
     LEFT JOIN OCTG C0 ON T0.GroupNum = C0.GroupNum
 
@@ -63,7 +63,7 @@ Route::post('/bbb', function (Request $request) {
         $data = DB::connection('sqlsrv')->select($sap_Query);
     } else {
         $serverName = "10.10.10.100";
-        $databaseName = "LB";
+        $databaseName = "TM";
         $uid = "ayman";
         $pwd = "admin@1234";
         $options = [

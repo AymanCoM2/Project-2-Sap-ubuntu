@@ -1,0 +1,26 @@
+1- In the Sap-Prject : 
+    - Before Log in ask For the DB name "LB or TM" 
+    - In the Dashboard , Show a title to show what is the DB name  ;
+
+
+IN GENERAL : 
+    - ANY data that Does NOT exist Shoul be nulled and then DISABLED  ; 
+
+Showing the "Disapprved FIles " For the Editor ;  
+
+نوع العميل بتبقى فاضية ف البداية حتى 
+لو فيه داتا اكسيل 
+Check the Data ; 
+==============================
+
+
+1- Sap Data Not Updating 
+    Making Them REal Life Updating ; 
+
+2 - SAP - Project  :: Add to admin Feature to manage users and Make them Admins and Users 
+Or whatever  ;
+
+1-REPORTS ; 
+===============
+
+
