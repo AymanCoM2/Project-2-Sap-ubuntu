@@ -6,9 +6,13 @@
         if (selectedValue == 'موجود') {
             $(':input[name="ExpiryDateNationalAddress"]').attr('required', true);
             $(':input[name="ExpiryDateNationalAddress"]').addClass('border border-danger');
+            $(':input[name="ExpiryDateNationalAddress"]').prop('disabled', false);
         } else {
             $(':input[name="ExpiryDateNationalAddress"]').attr('required', false);
             $(':input[name="ExpiryDateNationalAddress"]').removeClass('border border-danger');
+            $(':input[name="ExpiryDateNationalAddress"]').val('');
+            $(':input[name="ExpiryDateNationalAddress_h"]').val('');
+            $(':input[name="ExpiryDateNationalAddress"]').prop('disabled', true);
         }
     });
 
@@ -27,10 +31,14 @@
         if (selectedValue == 'موجود') {
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').attr('required', true);
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').addClass('border border-danger');
+            $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').prop('disabled', false);
         } else {
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').attr('required', false);
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').removeClass(
                 'border border-danger');
+            $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').val('');
+            $(':input[name="ExpiryDateNationalAddressReserveGuarantor_h"]').val('');
+            $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').prop('disabled', true);
         }
     });
 

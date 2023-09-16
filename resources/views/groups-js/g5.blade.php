@@ -7,9 +7,13 @@
             if (selectedValue == 'موجود') {
                 $(':input[name="OwnerIDExpiryDate"]').attr('required', true);
                 $(':input[name="OwnerIDExpiryDate"]').addClass('border border-danger');
+                $(':input[name="OwnerIDExpiryDate"]').prop('disabled', false);
             } else {
                 $(':input[name="OwnerIDExpiryDate"]').attr('required', false);
                 $(':input[name="OwnerIDExpiryDate"]').removeClass('border border-danger');
+                $(':input[name="OwnerIDExpiryDate"]').val('');
+                $(':input[name="OwnerIDExpiryDate_h"]').val('');
+                $(':input[name="OwnerIDExpiryDate"]').prop('disabled', true);
             }
         });
 
@@ -30,9 +34,14 @@
             if (selectedValue == 'موجود') {
                 $(':input[name="ExpiryDateGuarantorPromissoryNote"]').attr('required', true);
                 $(':input[name="ExpiryDateGuarantorPromissoryNote"]').addClass('border border-danger');
+                $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', false);
             } else {
                 $(':input[name="ExpiryDateGuarantorPromissoryNote"]').attr('required', false);
                 $(':input[name="ExpiryDateGuarantorPromissoryNote"]').removeClass('border border-danger');
+                $(':input[name="ExpiryDateGuarantorPromissoryNote"]').val('');
+                $(':input[name="ExpiryDateGuarantorPromissoryNote_h"]').val('');
+                $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', true);
+
             }
         });
 
@@ -54,10 +63,15 @@
                 // $('p[name="hala_3"]').text('سارى');
                 $(':input[name="ExpirationDateFirstWitness"]').attr('required', true);
                 $(':input[name="ExpirationDateFirstWitness"]').addClass('border border-danger');
+                $(':input[name="ExpirationDateFirstWitness"]').prop('disabled', false);
+
             } else {
                 // $('p[name="hala_3"]').text('يجب اعادة طلبه');
                 $(':input[name="ExpirationDateFirstWitness"]').attr('required', false);
                 $(':input[name="ExpirationDateFirstWitness"]').removeClass('border border-danger');
+                $(':input[name="ExpirationDateFirstWitness"]').val('');
+                $(':input[name="ExpirationDateFirstWitness_h"]').val('');
+                $(':input[name="ExpirationDateFirstWitness"]').prop('disabled', true);
             }
         });
 
@@ -78,9 +92,13 @@
             if (selectedValue == 'موجود') {
                 $(':input[name="ExpiryDateSecondWitness"]').attr('required', true);
                 $(':input[name="ExpiryDateSecondWitness"]').addClass('border border-danger');
+                $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', false);
             } else {
                 $(':input[name="ExpiryDateSecondWitness"]').attr('required', false);
                 $(':input[name="ExpiryDateSecondWitness"]').removeClass('border border-danger');
+                $(':input[name="ExpiryDateSecondWitness"]').val('');
+                $(':input[name="ExpiryDateSecondWitness_h"]').val('');
+                $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', true);
             }
         });
 
